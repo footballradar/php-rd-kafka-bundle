@@ -29,7 +29,7 @@ class TopicProducer extends TopicCommunicator {
 	 */
 	public function produceStart() {
 		if ($this->isProducing === true) {
-			throw new \Exception("This topic is already producing");
+			return;
 		}
 		
 		$config = $this->getConfig($this->props);
