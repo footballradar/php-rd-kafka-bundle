@@ -67,5 +67,9 @@ class TopicProducer extends TopicCommunicator {
 		$this->isProducing = false;
 		
 	}
+
+    public function isProducing() {
+        return $this->isProducing;
+    }
 	
 }

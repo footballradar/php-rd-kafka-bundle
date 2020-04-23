@@ -53,5 +53,17 @@ class Manager {
 	public function getConsumer($name) {
 		return array_key_exists($name, $this->consumers) ? $this->consumers[$name] : null;
 	}
-	
+
+
+    public function anyProducerStarted() {
+        return in_array(
+            true,
+            array_map(
+                function (TopicProducer $producer) {
+                    return $producer->isProducing();
+                }, $this->producers
+            ),
+            true
+        );
+    }
 }
